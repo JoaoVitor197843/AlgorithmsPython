@@ -39,9 +39,9 @@ Atualmente, a ordenação é feita diretamente no __init__.
 
 ## 📁 Estrutura do Projeto
 heap_sort/  
-├── src  
-|  └── heap_sort.py  
-|  └── make_binary_heap.py  
+├─ src  
+| └── heap_sort.py  
+| └── make_binary_heap.py  
 ├── README.md  
 └── test/  
     └── heap_sort_tests.py  
