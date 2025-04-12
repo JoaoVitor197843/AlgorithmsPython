@@ -10,9 +10,7 @@ class heap_sort(binary_heap):
     self.items = to_sort
     self.end_index = len(self.items) - 1
     self._max_heapify()
-    self.stif_limit = self._get_last_parent_node()
-    self.stif_limit = self._get_last_parent_node()
-    self.heapify_steps = 1
+    self.last_parent_limit = self._get_last_parent_node()
     while self.end_index > 0:
       self.items[0], self.items[self.end_index] = self.items[self.end_index], self.items[0]
       self._heapify_after_sort()
@@ -27,9 +25,9 @@ class heap_sort(binary_heap):
     left, right: left and right childs"""
     largest = 0
     current_item = 0
-    while largest < self.stif_limit:
+    while largest < self.last_parent_limit:
       left, right = self._get_left_child_node(largest), self._get_right_child_node(largest)
-      if left > self.stif_limit or largest > self.end_index:
+      if left > self.last_parent_limit or largest > self.end_index:
         break
       if self.items[largest] < self.items[left]:
         largest = left      
