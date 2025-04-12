@@ -61,19 +61,19 @@ class binary_heap:
       if self._verify_list():
         heap_last_parent = self._get_last_parent_node()
         while heap_last_parent >= 0:
-          current_index = heap_last_parent
+          largest_index = self.last_parent_limit
           left_child, right_child = self._get_left_child_node(heap_last_parent), self._get_right_child_node(heap_last_parent)
-          if self.items[current_index] < self.items[left_child]:
-              current_index = left_child
+          if self.items[largest_index] < self.items[left_child]:
+              largest_index = left_child
           if right_child != -1:
-            if self.items[current_index] < self.items[right_child]:
-              current_index = right_child
-          if self.items[current_index] != self.items[heap_last_parent]:
-            self.items[heap_last_parent], self.items[current_index] = self.items[current_index], self.items[heap_last_parent]
+            if self.items[largest_index] < self.items[right_child]:
+              largest_index = right_child
+          if self.items[largest_index] != self.items[heap_last_parent]:
+            self.items[heap_last_parent], self.items[largest_index] = self.items[largest_index], self.items[heap_last_parent]
             while True:
-              heapified_index = self._heapify(current_index)
+              heapified_index = self._heapify(largest_index)
               if heapified_index is None:
                 break
               else:
-                current_index = heapified_index
+                largest_index = heapified_index
           heap_last_parent -= 1
