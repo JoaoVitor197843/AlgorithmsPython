@@ -11,6 +11,7 @@ class heap_sort(binary_heap):
     self.end_index = len(self.items) - 1
     self._max_heapify()
     self.stif_limit = self._get_last_parent_node()
+    self.stif_limit = self._get_last_parent_node()
     self.heapify_steps = 1
     while self.end_index > 0:
       self.items[0], self.items[self.end_index] = self.items[self.end_index], self.items[0]
