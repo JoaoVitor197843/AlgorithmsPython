@@ -1,20 +1,4 @@
 class binary_heap:
-    def _verify_list(self) -> bool | ValueError | IndexError | TypeError:
-        """This function is a safety function
-        thats verify if list only have numbers
-        if the list have more than two numbers 
-        and if it's really a list"""
-        if isinstance(self.items, list):
-          if len(self.items) < 2:
-            raise IndexError("You need to pass a list with more than one item")
-          for __item in self.items:
-            if isinstance(__item, (int, float)):
-              continue
-            else:
-              raise ValueError("Your list can only have numbers!")
-          return True
-        else:
-          raise TypeError("Your item need to be a list!")
     def _get_last_parent_node(self) -> int:
       """this function get's the last parent node"""
       return (len(self.items) // 2) - 1
@@ -58,22 +42,39 @@ class binary_heap:
       current index: get the current node to verify
       left/right child: get the left and the right child(if the parent have a right child)
       heapified index: makes the changed child get in the right place after replaced"""
-      if self._verify_list():
-        heap_last_parent = self._get_last_parent_node()
-        while heap_last_parent >= 0:
-          largest_index = self.last_parent_limit
-          left_child, right_child = self._get_left_child_node(heap_last_parent), self._get_right_child_node(heap_last_parent)
-          if self.items[largest_index] < self.items[left_child]:
-              largest_index = left_child
-          if right_child != -1:
-            if self.items[largest_index] < self.items[right_child]:
-              largest_index = right_child
-          if self.items[largest_index] != self.items[heap_last_parent]:
-            self.items[heap_last_parent], self.items[largest_index] = self.items[largest_index], self.items[heap_last_parent]
-            while True:
-              heapified_index = self._heapify(largest_index)
-              if heapified_index is None:
-                break
-              else:
-                largest_index = heapified_index
-          heap_last_parent -= 1
+      heap_last_parent = self._get_last_parent_node()
+      while heap_last_parent >= 0:
+        largest_index = heap_last_parent
+        left_child, right_child = self._get_left_child_node(heap_last_parent), self._get_right_child_node(heap_last_parent)
+        if self.items[largest_index] < self.items[left_child]:
+            largest_index = left_child
+        if right_child != -1:
+          if self.items[largest_index] < self.items[right_child]:
+            largest_index = right_child
+        if self.items[largest_index] != self.items[heap_last_parent]:
+          self.items[heap_last_parent], self.items[largest_index] = self.items[largest_index], self.items[heap_last_parent]
+          while True:
+            heapified_index = self._heapify(largest_index)
+            if heapified_index is None:
+              break
+            else:
+              largest_index = heapified_index
+        heap_last_parent -= 1
+class list_verification:
+  @staticmethod
+  def __init__(to_verify_list: list[int]) -> bool | ValueError | IndexError | TypeError:
+      """This function is a safety function
+      thats verify if list only have numbers
+      if the list have more than two numbers 
+      and if it's really a list"""
+      if isinstance(to_verify_list, list):
+        if len(to_verify_list) < 2:
+          raise IndexError("You need to pass a list with more than one item")
+        for item in to_verify_list:
+          if isinstance(item, (int, float)):
+            continue
+          else:
+            raise ValueError("Your list can only have numbers!")
+        return True
+      else:
+        raise TypeError("Your item need to be a list!")
