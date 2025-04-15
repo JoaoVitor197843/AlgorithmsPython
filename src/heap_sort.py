@@ -1,5 +1,4 @@
 from make_binary_heap import binary_heap
-import random, time
 class heap_sort(binary_heap):
   def __init__(self, to_sort: list[int] = []):
     """This init the code:
@@ -41,8 +40,3 @@ class heap_sort(binary_heap):
         current_item = largest
       else:
         break
-lista = random.sample(range(1000000),200000)
-init_time = time.perf_counter()
-ordened_list = heap_sort(lista)
-end_time = time.perf_counter()
-print(ordened_list,ordened_list.items==sorted(lista), end_time-init_time)
