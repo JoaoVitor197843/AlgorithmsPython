@@ -1,1 +1,1 @@
-from heap_sort import heap_sort
+from .hybrid_quick_sort import quick_sort
