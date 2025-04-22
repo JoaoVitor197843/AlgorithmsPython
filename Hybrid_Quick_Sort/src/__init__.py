@@ -1,0 +1,1 @@
+from .hybrid_quick_sort import quick_sort
