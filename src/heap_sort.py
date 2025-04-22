@@ -1,4 +1,4 @@
-from make_binary_heap import binary_heap
+from .make_binary_heap import binary_heap
 class heap_sort(binary_heap):
   def __init__(self, to_sort: list[int] = []):
     """This init the code:
