@@ -1,4 +1,4 @@
-# ALGORITMOS DE ORDENAÇÂO EM PYTHON
+# ALGORITMOS DE ORDENAÇÃO EM PYTHON
 
 > Algumas implementações básicas de algoritmos de ordenação clássicos, feitas totalmente em Python com foco em entendimento de lógica, desempenho e modularização.
 
