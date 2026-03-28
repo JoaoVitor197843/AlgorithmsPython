@@ -73,7 +73,7 @@ pytest -v
 ## 🏗️ ESTRUTURA DO PROJETO
 
 Algorithms/
-├── Heap_Sort/
+├── heap_sort/
 │   ├── src/
 │   │   ├── heap_sort.py
 │   │   ├── make_binary_heap.py
@@ -81,7 +81,7 @@ Algorithms/
 │   ├── tests/
 │   │   └── heap_sort_test.py
 │
-├── Hybrid_Quick_Sort/
+├── hybrid_quick_sort/
 │   ├── src/
 │   │   └── hybrid_quick_sort.py
 │   ├── tests/
